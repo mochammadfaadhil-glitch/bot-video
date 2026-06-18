@@ -13,7 +13,7 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
-const botUsername = "aeternummedia_bot";
+const botUsername = "@hiiiaku_bot";
 const OWNER_ID = 1928472388;
 
 // CHANNEL WAJIB JOIN
