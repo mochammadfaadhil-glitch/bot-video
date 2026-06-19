@@ -91,17 +91,47 @@ async function checkMembership(userId) {
 
   try {
 
-    const channel = await bot.getChatMember(CHANNEL_USERNAME, userId);
-    const group = await bot.getChatMember(GROUP_ID, userId);
+    const channel = await bot.getChatMember(
+      CHANNEL_USERNAME,
+      userId
+    );
 
-    const allowed = ["member", "administrator", "creator"];
+    console.log("CHANNEL STATUS:", channel.status);
 
-    if (!allowed.includes(channel.status)) return false;
-    if (!allowed.includes(group.status)) return false;
+    const allowed = [
+      "member",
+      "administrator",
+      "creator"
+    ];
+
+    if (!allowed.includes(channel.status)) {
+      return false;
+    }
+
+    const group = await bot.getChatMember(
+      GROUP_ID,
+      userId
+    );
+
+    console.log("GROUP STATUS:", group.status);
+
+    if (!allowed.includes(group.status)) {
+      return false;
+    }
 
     return true;
 
-  } catch {
+  } catch (err) {
+
+    console.log(
+      "Membership Error:",
+      JSON.stringify(
+        err.response?.body || err,
+        null,
+        2
+      )
+    );
+
     return false;
   }
 
