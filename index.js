@@ -17,7 +17,7 @@ const botUsername = "@hiiiaku_bot";
 const OWNER_ID = 1928472388;
 
 // CHANNEL WAJIB JOIN
-const CHANNEL_USERNAME = "@aeternummediaa";
+const CHANNEL_USERNAME = "@AeternumMediaa";
 
 // GROUP WAJIB JOIN (grup privat pakai Chat ID)
 const GROUP_ID = -1003979327725;
